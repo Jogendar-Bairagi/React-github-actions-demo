@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@4
+        uses: actions/checkout@v4
         with: 
           node-version: '24'
           cache: 'npm'
