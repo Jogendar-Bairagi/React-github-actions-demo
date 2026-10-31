@@ -4,16 +4,16 @@ on:
     workflows: [first workflow]
     types:
       - completed
-  jobs:
-    deploy:
-      runs-on : ubuntu-latest
-      if: github.event.workflow_run.conclusion == 'success'
+jobs:
+  deploy:
+    runs-on : ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
 
-      steps:
-        - name: Deploy to production server or Vercel
-          uses: actions/checkout@v4
-        - name: "Install vercel cli"
-          run: npm install --global vercel
-        - name: deployment on vercel
-          run: vercel --prod --yes --token="${{secrets.VERCEL_TOKEN}}"
+    steps:
+      - name: Deploy to production server or Vercel
+        uses: actions/checkout@v4
+      - name: "Install vercel cli"
+        run: npm install --global vercel
+      - name: deployment on vercel
+        run: vercel --prod --yes --token="${{secrets.VERCEL_TOKEN}}"
          
