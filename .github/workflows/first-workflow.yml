@@ -6,21 +6,22 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Just download the code
+    
       - name: checkout
         uses: actions/checkout@v4
       
-      # Step 2: Set up Node.js and cache (Separated!)
+  
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with: 
           node-version: '24'
           cache: 'npm'
 
-      # Step 3: Install dependencies
       - name: install dependency
         run: npm ci
 
-      # Step 4: Build
+      - name: run test case
+        run : npm test
+
       - name: make react build
         run: npm run build
